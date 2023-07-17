@@ -1,7 +1,16 @@
 import { readAsArrayBuffer } from './asyncReader.js';
 import { fetchFont, getAsset } from './prepareAssets';
 import { noop } from './helper.js';
-
+function toBase64(pdfBytes) {
+  let binary = '';
+  const bytes = new Uint8Array(pdfBytes);
+  const len = bytes.byteLength;
+  for (let i = 0; i < len; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  const base64 = btoa(binary);
+  return base64;
+}
 export async function save(pdfFile, objects, name) {
   const PDFLib = await getAsset('PDFLib');
   const download = await getAsset('download');
@@ -93,9 +102,39 @@ export async function save(pdfFile, objects, name) {
   await Promise.all(pagesProcesses);
   try {
     const pdfBytes = await pdfDoc.save();
-    download(pdfBytes, name, 'application/pdf');
+    let sentPdf =(toBase64(pdfBytes));
+   // download(pdfBytes, name, 'application/pdf');
+   
+   const response = await fetch('http://localhost:3000/digitalSignature/upload-sentpdf', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      pdfData: sentPdf,
+      email: name
+    }),
+  });
+console.log(name);
+  if (response.ok) {
+    console.log('PDF uploaded successfully');
+  } else {
+    console.log('Failed to upload PDF');
+  }
+
+ // window.close();
+
+
+
   } catch (e) {
     console.log('Failed to save PDF.');
     throw e;
   }
+
+
+
+
+  
+
+  
 }

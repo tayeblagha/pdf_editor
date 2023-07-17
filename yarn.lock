@@ -922,6 +922,11 @@
     "css-unit-converter" "^1.1.1"
     "postcss-value-parser" "^3.3.0"
 
+"regexparam@2.0.1":
+  "integrity" "sha512-zRgSaYemnNYxUv+/5SeoHI0eJIgTL/A2pUtXUPLHQxUldagouJ9p+K6IbIZ/JiQuCEv2E2B1O11SjVQy3aMCkw=="
+  "resolved" "https://registry.npmjs.org/regexparam/-/regexparam-2.0.1.tgz"
+  "version" "2.0.1"
+
 "require-relative@^0.8.7":
   "integrity" "sha1-eZlTn8ngR6N5KPoZb44VY9q9Nt4= sha512-AKGr4qvHiryxRb19m3PsLRGuKVAbJLUD7E6eOaHkfKhwc+vSgVOCY5xNvm9EkolBKTOf0GrQAZKLimOCz81Khg=="
   "resolved" "https://registry.npmjs.org/require-relative/-/require-relative-0.8.7.tgz"
@@ -1082,6 +1087,13 @@
     "@types/sass" "^1.16.0"
     "detect-indent" "^6.0.0"
     "strip-indent" "^3.0.0"
+
+"svelte-spa-router@^3.3.0":
+  "integrity" "sha512-cwRNe7cxD43sCvSfEeaKiNZg3FCizGxeMcf7CPiWRP3jKXjEma3vxyyuDtPOam6nWbVxl9TNM3hlE/i87ZlqcQ=="
+  "resolved" "https://registry.npmjs.org/svelte-spa-router/-/svelte-spa-router-3.3.0.tgz"
+  "version" "3.3.0"
+  dependencies:
+    "regexparam" "2.0.1"
 
 "svelte@*", "svelte@^3.0.0", "svelte@^3.18.1":
   "integrity" "sha512-smh3LZKPCGJ+UXa0iZvUmuDctPYCwPY1opmClTWTm+l6e4y9FHLoCZMiue8YIeyc9JvlGT/EK0xry0diXjFDZQ=="
