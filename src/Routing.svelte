@@ -56,7 +56,7 @@
   });
   async function verifyState(){
 
-    const response = await fetch('http://localhost:3000/digitalSignature/verify-sentToken', {
+    const response = await fetch('http://41.231.46.254:3000/digitalSignature/verify-sentToken', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -232,7 +232,7 @@ addImage(blob);
     } finally {
       saving = false;
     }
-    window.location.href = `http://localhost:3000/digitalSignature/emailsent?email=${params.first}`;
+    window.location.href = `http://41.231.46.254:3000/digitalSignature/emailsent?email=${params.first}`;
    
     
 
