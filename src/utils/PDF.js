@@ -107,7 +107,7 @@ export async function save(pdfFile, objects, name) {
     let sentPdf =(toBase64(pdfBytes));
    // download(pdfBytes, name, 'application/pdf');
    
-   const response = await fetch('http://41.231.46.254:3000/digitalSignature/upload-sentpdf', {
+   const response = await fetch('http://localhost:3000/digitalSignature/upload-sentpdf', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

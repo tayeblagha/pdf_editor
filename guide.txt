@@ -1,0 +1,18 @@
+# Use the official Node.js image as the base image
+FROM node:14
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the built Svelte.js application to the container
+COPY ./public ./public
+COPY ./build ./build
+
+# Install a simple HTTP server to serve the static content
+RUN npm install -g http-server
+
+# Expose the port that the HTTP server will listen on
+EXPOSE 8080
+
+# Start the HTTP server when the container runs
+CMD ["http-server", "./public", "-p", "8080"]
